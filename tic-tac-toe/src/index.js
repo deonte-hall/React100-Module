@@ -24,8 +24,19 @@ class Square extends React.Component {
   }
   
   class Board extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            squares: Array(9).fill(null),
+        };
+    }
     renderSquare(i) {
-      return <Square value={i}/>;
+      return ( <Square 
+        value={this.state.squares[i]}
+        onClick={()=> this.handleClick(i)}      
+        />
+      );
     }
   
     render() {
@@ -53,7 +64,18 @@ class Square extends React.Component {
       );
     }
   }
-  
+//   class Notes {
+//       constructor(pages, pens){
+//         this.pages = pages;
+//         this.pens = pens;
+//       }
+//       writeNote(){
+//           console.log(`This note has ${this.pages} pages!`);
+//       }
+
+    
+//   }
+
   class Game extends React.Component {
     render() {
       return (
